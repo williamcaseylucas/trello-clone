@@ -12,6 +12,7 @@
 - component library that works well with next14
 - add "asChild" for Button to make sure Link still works
 - cn allows you to append additional fonts to pre-existing components
+- Added 'primary' variant to button component
 
 # nextjs 14
 
@@ -32,3 +33,4 @@
 
 - Add ClerkProvider to (platform) portion
 - Add middleware.ts to root of application
+- auth is a ss component
