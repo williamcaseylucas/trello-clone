@@ -7,6 +7,20 @@
 - npx shadcn-ui@latest add skeleton
 - npx shadcn-ui@latest add accordion
 - npx shadcn-ui@latest add separator
+- yarn add zustand
+- npx shadcn-ui@latest add sheet
+- yarn add -D prisma
+- yarn add @prisma/client
+- yarn add zod
+
+# Prisma
+
+- yarn prisma init
+- yarn prisma generate
+- yarn prisma db push
+- yarn prisma studio
+
+# Planetscale
 
 # Cal.com unique fonts
 
@@ -26,6 +40,11 @@
 - (name) -> exclude from urls
 - \_name -> anything inside is excluded
 - add images to next.config.js through remotePatterns
+
+# Nextjs SSR
+
+- Can now create server components within server-side rendered applications by using 'use server'
+- Can use revalidatePath() to refetch when update occurs
 
 # tailwind
 
@@ -51,3 +70,4 @@
 - Use org-control to check url and update based on the correct url
 - organizationId is because of our folder name
 - sidebar + navitem are how we are rendering sidebar
+- Add NavItem.Skeleton inside of navbar to generate silouette of loading area
