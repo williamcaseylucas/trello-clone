@@ -5,7 +5,7 @@
 // import FormButton from "./form-button";
 import { createBoard } from "@/actions/create-board";
 import FormInput from "@/components/form/form-input";
-import { FormSubmit } from "@/components/form/form-button";
+import { FormSubmit } from "@/components/form/form-submit";
 import { useAction } from "@/hooks/use-action";
 
 const Form = () => {

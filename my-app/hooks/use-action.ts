@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 
+// This is from the create-safe-actions file. We are using the types here whereas in index.ts we are using createSafeAction
 import { ActionState, FieldErrors } from "@/lib/create-safe-action";
 
 type Action<TInput, TOutput> = (
@@ -14,6 +15,8 @@ interface UseActionOptions<TOutput> {
   onComplete?: () => void;
 }
 
+// This will have createBoard passed into it which is from index.ts which ensures user is signed in and tries to create board
+// options we add as an object during execution
 export const useAction = <TInput, TOutput>(
   action: Action<TInput, TOutput>,
   options: UseActionOptions<TOutput> = {}
@@ -33,9 +36,8 @@ export const useAction = <TInput, TOutput>(
 
         if (!result) return;
 
-        if (result.fieldErrors) {
-          setFieldErrors(result.fieldErrors);
-        }
+        // if (result.fieldErrors) <- needs to either be undefined or true, otherwise our component doesn't know to make the error go away
+        setFieldErrors(result.fieldErrors);
 
         // Wherever we have options, we have callback options
         if (result.error) {

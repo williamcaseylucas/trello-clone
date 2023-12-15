@@ -1,4 +1,5 @@
 // Will be referenced in actions/create-board
+// This is referenced in index.ts directly as a wrapper to ensure the types are correct
 
 import { TextCursorInput } from "lucide-react";
 import { z } from "zod";

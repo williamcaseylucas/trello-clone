@@ -11,20 +11,50 @@
 - npx shadcn-ui@latest add label
 - yarn add zustand
 - npx shadcn-ui@latest add sheet
+- npx shadcn-ui@latest add tooltip (question mark hover)
+- npx shadcn-ui@latest add popover
 - yarn add -D prisma
 - yarn add @prisma/client
 - yarn add zod
+- yarn add sonner
+- yarn add unsplash-js
+
+# unsplash.com/developers
+
+- Signup and you get access key and secret key
+- /constants folder with images.ts as fallback for when we surpass 50 free requests
+  - open network tab
+  - select all
+  - search for random
+  - copy response and paste it
+- use input with type='radio' that is hidden but will act as a trigger for our form (this will have an id of 'image')
+  - have value with image id | img thumb | img full | img html | img user name
+    - This will be stored in our db
+    - Will be split by pipes
+
+# images
+
+- Often images are position relative and the Image from next/link has object-cover
 
 # Prisma
 
-- yarn prisma init
-- yarn prisma generate
-- yarn prisma db push
-- yarn prisma studio
+- init
+  - yarn prisma init
+- create and push
+  - yarn prisma generate
+  - yarn prisma db push
+- run primsa studio
+  - yarn prisma studio
+- to reset
+  - yarn prisma migrate reset
 
 # Planetscale
 
 # Cal.com unique fonts
+
+# Toast
+
+- Add to layout.tsx at same level as ClerkProvider
 
 # Shadcn
 
@@ -34,6 +64,7 @@
 - cn allows you to append additional fonts to pre-existing components
 - Added 'primary' variant to button component
 - Accordian trigger has chevron down in component!
+- Added PopoverClose to popover.tsx
 
 # nextjs 14
 
@@ -84,3 +115,13 @@
 # typescript
 
 - Add '!' to end of src={} on error 'undefined is not assinable'
+
+# How custom hook use-action works
+
+- You get execute, and fieldErrors returned from /hooks
+- useAction takes an action (createBoard from index.ts which validates user is signed in and then attempts to create a board), and then options such as onSuccess, onError, onComplete which we define during the runtime of the hook
+- index.ts has a schema defined with zod and types defined as well
+- /lib has a 'createSafeAction' file where FieldErrors and ActionState are defined
+- a schema and handler are required for createSafeAction, but this is used in index.ts
+- execute is a callbackFunction that can be initiated by user
+- execute is called on a form submitting when a formInput has an id of 'title'
