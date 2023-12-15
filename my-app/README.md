@@ -7,6 +7,8 @@
 - npx shadcn-ui@latest add skeleton
 - npx shadcn-ui@latest add accordion
 - npx shadcn-ui@latest add separator
+- npx shadcn-ui@latest add input
+- npx shadcn-ui@latest add label
 - yarn add zustand
 - npx shadcn-ui@latest add sheet
 - yarn add -D prisma
@@ -45,6 +47,7 @@
 
 - Can now create server components within server-side rendered applications by using 'use server'
 - Can use revalidatePath() to refetch when update occurs
+- Created unique hook useAction to simulate useMutation that reactQuery gives you
 
 # tailwind
 
@@ -71,3 +74,13 @@
 - organizationId is because of our folder name
 - sidebar + navitem are how we are rendering sidebar
 - Add NavItem.Skeleton inside of navbar to generate silouette of loading area
+
+# Server Actions (all around create-safe-action.ts)
+
+- types.ts (input and output)
+- schema.ts (ZOD validation)
+- index.ts (handler)
+
+# typescript
+
+- Add '!' to end of src={} on error 'undefined is not assinable'
