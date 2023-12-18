@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `$s | ${siteConfig.name}`, // My-Organization | Taskify
+    template: `%s | ${siteConfig.name}`, // My-Organization | Taskify
   },
   description: siteConfig.description,
   icons: [

@@ -18,6 +18,7 @@
 - yarn add zod
 - yarn add sonner
 - yarn add unsplash-js
+- yarn add lodash (allows us to change tab title to reflect page)
 
 # unsplash.com/developers
 
@@ -73,6 +74,13 @@
 - (name) -> exclude from urls
 - \_name -> anything inside is excluded
 - add images to next.config.js through remotePatterns
+- add %s among other values in meta data in orignial layout and then you can export generateMetadata() in any SSR component and return some 'title' string and have it dynamically render if you have a 'title' component in your base layout
+
+# react
+
+- Can use ref to click a button that makes popup go away after some desired action occurs
+- Wrap loading skelton in Suspense to be used as a 'fallback'
+  - example in org/orgId page.tsx with BoardList
 
 # Nextjs SSR
 
