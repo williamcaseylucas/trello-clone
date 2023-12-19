@@ -9,6 +9,7 @@
 - npx shadcn-ui@latest add separator
 - npx shadcn-ui@latest add input
 - npx shadcn-ui@latest add label
+- npx shadcn-ui@latest add textarea
 - yarn add zustand
 - npx shadcn-ui@latest add sheet
 - npx shadcn-ui@latest add tooltip (question mark hover)
@@ -49,6 +50,8 @@
 - to reset
   - yarn prisma migrate reset
 - import from @prisma/client for types
+- looks at dashboard/board/bordid/page.tsx to see reference of grabbing lists from db
+- types.ts in root for ListWithCards and CardsWithList since both will be fetched from db simultaneously
 
 # Planetscale
 
@@ -77,11 +80,11 @@
 - add images to next.config.js through remotePatterns
 - add %s among other values in meta data in orignial layout and then you can export generateMetadata() in any SSR component and return some 'title' string and have it dynamically render if you have a 'title' component in your base layout
 - Layout has children and params where params has id based on folder name
+- router.refresh(); // so we refetch server components
 
-# For images in div
+# drag and drop
 
-- relative min-h-screen bg-no-repeat bg-cover bg-center
-- then add div inside of it with: relative inset-0 bg-black/10
+- Could do it all on the server but that would result in bad user experience so we will use useState on data to have 'optimistic' version that updates correctly
 
 # react
 
@@ -99,6 +102,12 @@
 
 - shrink-0 makes sure the width never expands beyond the point you define
 - ml-auto pushes it to the right
+- For images in div
+  - relative min-h-screen bg-no-repeat bg-cover bg-center
+  - then add div inside of it with: relative inset-0 bg-black/10
+- For icons
+  - have h-auto w-auto and potentialy absolute positioning with top-2 right-2
+  - have child element with icon be h-4 w-4
 
 # Create config
 
