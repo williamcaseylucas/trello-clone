@@ -48,6 +48,7 @@
   - yarn prisma studio
 - to reset
   - yarn prisma migrate reset
+- import from @prisma/client for types
 
 # Planetscale
 
@@ -75,6 +76,12 @@
 - \_name -> anything inside is excluded
 - add images to next.config.js through remotePatterns
 - add %s among other values in meta data in orignial layout and then you can export generateMetadata() in any SSR component and return some 'title' string and have it dynamically render if you have a 'title' component in your base layout
+- Layout has children and params where params has id based on folder name
+
+# For images in div
+
+- relative min-h-screen bg-no-repeat bg-cover bg-center
+- then add div inside of it with: relative inset-0 bg-black/10
 
 # react
 
