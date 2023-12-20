@@ -20,7 +20,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   let card;
 
   try {
-    const card = await db.card.delete({
+    card = await db.card.delete({
       where: {
         id,
         list: {

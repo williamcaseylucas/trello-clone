@@ -11,6 +11,7 @@
 - npx shadcn-ui@latest add label
 - npx shadcn-ui@latest add textarea
 - npx shadcn-ui@latest add dialog
+- npx shadcn-ui@latest add avatar
 - yarn add zustand
 - npx shadcn-ui@latest add sheet
 - npx shadcn-ui@latest add tooltip (question mark hover)
@@ -23,6 +24,17 @@
 - yarn add lodash (allows us to change tab title to reflect page)
 - yarn add @hello-pangea/dnd
 - yarn add @tanstack/react-query
+- yarn add date-fns
+
+# audit logs
+
+- adding a model for the audit log
+- /lib create-audit-log was created
+- in /actions/create-card/index.ts we use this when creating a card
+- use enums for ACTIONS and ENTITY_TYPE
+- in api/cards/[cardId]
+- Tanstack query example in /components/modals/card-modal/index.tsx
+- generate log message so we don't have to everytime (inside of /lib folder)
 
 # React Tanstack
 
@@ -58,7 +70,9 @@
   - yarn prisma init
 - create and push
   - yarn prisma generate
+    - get schema locally
   - yarn prisma db push
+    - push to db
 - run primsa studio
   - yarn prisma studio
 - to reset
