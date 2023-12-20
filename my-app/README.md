@@ -10,6 +10,7 @@
 - npx shadcn-ui@latest add input
 - npx shadcn-ui@latest add label
 - npx shadcn-ui@latest add textarea
+- npx shadcn-ui@latest add dialog
 - yarn add zustand
 - npx shadcn-ui@latest add sheet
 - npx shadcn-ui@latest add tooltip (question mark hover)
@@ -20,6 +21,19 @@
 - yarn add sonner
 - yarn add unsplash-js
 - yarn add lodash (allows us to change tab title to reflect page)
+- yarn add @hello-pangea/dnd
+- yarn add @tanstack/react-query
+
+# React Tanstack
+
+- Need to use for card items themselves to render from api routes as they require client side information
+- add provider to /components/providers
+
+# drag and drop
+
+- Starts in list-container and goes to list-item and then to card-item
+- list container has drag and drop logic
+  - basic idea: we have indices for the lists and indicies for the cards, we change the order of these based on what was dropped via either a "list drag" a "same card drag" or a "different card drag"
 
 # unsplash.com/developers
 
@@ -81,6 +95,16 @@
 - add %s among other values in meta data in orignial layout and then you can export generateMetadata() in any SSR component and return some 'title' string and have it dynamically render if you have a 'title' component in your base layout
 - Layout has children and params where params has id based on folder name
 - router.refresh(); // so we refetch server components
+
+# hydration
+
+- Add ModalProvider with Hydration error protections in layout.tsx in (platform)
+
+# Card modal
+
+- Added to layout.tsx in platform and added to onClick event which loads the id onOpen
+- Also is in useCardModal under /hooks
+- in index.tsx under /components/modals/card-modal where we conditionally render Dialog based on isOpen which is set to true when onOpen has an id assigned to it in card-item
 
 # drag and drop
 

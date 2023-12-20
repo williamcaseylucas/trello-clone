@@ -4,7 +4,13 @@ import { FormSubmit } from "@/components/form/form-submit";
 import FormTextarea from "@/components/form/form-textarea";
 import { Button } from "@/components/ui/button";
 import { Plus, X } from "lucide-react";
-import { forwardRef } from "react";
+
+import { useAction } from "@/hooks/use-action";
+import { createCard } from "@/actions/create-card";
+import { forwardRef, useRef, ElementRef, KeyboardEventHandler } from "react";
+import { useParams } from "next/navigation";
+import { useEventListener, useOnClickOutside } from "usehooks-ts";
+import { toast } from "sonner";
 
 interface CardFormProps {
   listId: string;
@@ -16,14 +22,63 @@ interface CardFormProps {
 // because of ref forwarding we need it to be layed out this way
 const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
   ({ listId, enableEditing, disableEditing, isEditing }, ref) => {
+    const params = useParams();
+    const formRef = useRef<ElementRef<"form">>(null);
+
+    const { execute, fieldErrors } = useAction(createCard, {
+      onSuccess: (data) => {
+        toast.success(`Card "${data.title}" created`);
+        formRef.current?.reset();
+      },
+
+      onError: (error) => {
+        toast.error(error);
+      },
+    });
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        disableEditing();
+      }
+    };
+
+    useOnClickOutside(formRef, disableEditing);
+    useEventListener("keydown", onKeyDown);
+
+    const onTextareaKeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (
+      e
+    ) => {
+      // holding shift lets you go to a new line and not enter
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        formRef?.current?.requestSubmit();
+      }
+    };
+
+    const onSubmit = (formData: FormData) => {
+      const title = formData.get("title") as string;
+      const listId = formData.get("listId") as string;
+      // const boardId = formData.get("boardId") as string;
+      const boardId = params.boardId as string; // could also add hidden input and pass from parent
+
+      // console.log({ title, listId, boardId });
+
+      execute({ title, listId, boardId });
+    };
+
     if (isEditing) {
       return (
-        <form className="m-1 py-0.5 px-1 space-y-4">
+        <form
+          ref={formRef}
+          action={onSubmit}
+          className="m-1 py-0.5 px-1 space-y-4"
+        >
           <FormTextarea
             id="title"
-            onKeyDown={() => {}}
+            onKeyDown={onTextareaKeyDown}
             ref={ref}
             placeholder="Enter a title for this card..."
+            errors={fieldErrors}
           />
           <input hidden id="listId" name="listId" value={listId} />
           <div className="flex items-center gap-x-1">
