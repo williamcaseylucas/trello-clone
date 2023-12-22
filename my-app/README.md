@@ -25,6 +25,7 @@
 - yarn add @hello-pangea/dnd
 - yarn add @tanstack/react-query
 - yarn add date-fns
+- yarn add stripe
 
 # audit logs
 
@@ -35,6 +36,20 @@
 - in api/cards/[cardId]
 - Tanstack query example in /components/modals/card-modal/index.tsx
 - generate log message so we don't have to everytime (inside of /lib folder)
+- skip update-card-order and update-list-order in actions
+- make sure in /components/modals/card-modal/header and description to invalidate on 'card-logs' since this is what we used in index.tsx
+  - If you don't do this, it won't know to refetch the updated logs
+- Activity can be viewed from activity-list component which is a server component
+
+# Stripe
+
+- constants/boards.ts has constants
+- lib/org-limit.ts has useful functions
+- actions/create-board/index.ts increment and hasAvailable is used
+  - also in delete-board
+- board-list.tsx has remaining boards listed
+- lib/stripe.ts
+- subscription.ts
 
 # React Tanstack
 
