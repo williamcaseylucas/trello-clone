@@ -31,6 +31,11 @@
 
 - "postinstall": "prisma generate" to package.json
 - copy all from .env and past it into "Environment variables"
+- "add endpoint" for hosted endpoints and paste vercel link and add /api/webhook
+- checkout.session.completed and invoice.payment_succeeded
+- copy signing secret and add to vercel api
+- add link from vercel and remove '/'
+- then redeploy
 
 # audit logs
 
