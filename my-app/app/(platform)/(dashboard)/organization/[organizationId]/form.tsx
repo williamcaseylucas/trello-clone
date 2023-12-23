@@ -1,3 +1,5 @@
+// old
+
 "use client";
 // import { State } from "@/actions/create-board";
 // import { create } from "@/actions/create-board";
@@ -26,7 +28,7 @@ const Form = () => {
   const onSubmit = (formData: FormData) => {
     const title = formData.get("title") as string;
 
-    execute({ title });
+    // execute({ title });
   };
 
   return (

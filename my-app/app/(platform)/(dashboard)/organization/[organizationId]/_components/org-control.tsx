@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useOrganizationList } from "@clerk/nextjs";
 
 // organizationId is because of our folder name
-const orgControl = () => {
+const OrgControl = () => {
   const params = useParams();
   const { setActive } = useOrganizationList();
 
@@ -19,4 +19,4 @@ const orgControl = () => {
   return <></>;
 };
 
-export default orgControl;
+export default OrgControl;

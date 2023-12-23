@@ -28,7 +28,9 @@
 - yarn add stripe
 
 # deploy
+
 - "postinstall": "prisma generate" to package.json
+- copy all from .env and past it into "Environment variables"
 
 # audit logs
 
