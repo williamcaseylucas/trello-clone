@@ -27,6 +27,9 @@
 - yarn add date-fns
 - yarn add stripe
 
+# deploy
+- "postinstall": "prisma generate" to package.json
+
 # audit logs
 
 - adding a model for the audit log
@@ -50,6 +53,26 @@
 - board-list.tsx has remaining boards listed
 - lib/stripe.ts
 - subscription.ts
+- !!isValid ensures we are using a boolean
+- hooks/use-pro-modal
+- /components/modals/pro-modal.tsx
+- modal-provider has CardModal and ProModal
+- form-popover has onError to prompt user to sign up
+- /utils and absoluteUrl will be used to redirect to stripe
+- /actions/stripe-redirect
+- api route defined in /api/webook
+- after stripe cli is downloaded
+  - stripe login (in terminal)
+- stripe listen --forward-to localhost:3000/api/webhook
+  - add code to .ev stripe_webook_secret
+  - add "4242 4242 4242 4242" as dummy card
+- add /api/webhook in middleware so that it can be not rerouted
+- in board-list check is isPro
+- also add !isPro to create-board
+- in info.tsx -> added 'pro' and 'free' designation
+- subsription per organization
+- go to "billing portal" on stripe site to fix subscription-button error and activate test link
+  - This is for the manage subscription page
 
 # React Tanstack
 
@@ -124,6 +147,10 @@
 - add %s among other values in meta data in orignial layout and then you can export generateMetadata() in any SSR component and return some 'title' string and have it dynamically render if you have a 'title' component in your base layout
 - Layout has children and params where params has id based on folder name
 - router.refresh(); // so we refetch server components
+
+# Css
+
+- Have max-w-[something] as parent and then image inside with relative and item center with child of object-cover will fill, then seperate child with mx-auto will scale everything inside to the middle
 
 # hydration
 
